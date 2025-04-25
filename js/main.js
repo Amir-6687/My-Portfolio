@@ -18,6 +18,52 @@
 //   });
 // });
 document.addEventListener("DOMContentLoaded", function () {
+  AOS.init();
+
+  // بارگذاری داده‌های پروژه‌ها از فایل JSON
+  // 📌 بارگذاری پروژه‌ها از JSON و نمایش مرتب در گرید
+  fetch("projects.json")
+    .then((response) => response.json())
+    .then((projects) => {
+      const projectsContainer = document.querySelector(".projects-grid"); // اصلاح شد
+
+      projects.forEach((project) => {
+        const projectCard = document.createElement("div");
+        projectCard.classList.add("project-card");
+
+        projectCard.innerHTML = `
+      <img src="${project.image}" alt="${project.title}" class="project-img" />
+      <h3 class="project-title">${project.title}</h3>
+      <p class="project-description">${project.description}</p>
+      <a href="${project.link}" class="project-link" target="_blank">View Project</a>
+    `;
+
+        projectsContainer.appendChild(projectCard);
+      });
+    })
+    .catch((error) => console.error("❌ Error loading the projects:", error));
+
+  // fetch("projects.json")
+  //   .then((response) => response.json())
+  //   .then((projects) => {
+  //     const projectsContainer = document.querySelector("#projects .container");
+
+  //     projects.forEach((project) => {
+  //       const projectCard = document.createElement("div");
+  //       projectCard.classList.add("project-card");
+
+  //       projectCard.innerHTML = `
+  //        <img src="${project.image}" alt="${project.title}" class="project-img" />
+  //        <h3 class="project-title">${project.title}</h3>
+  //        <p class="project-description">${project.description}</p>
+  //        <a href="${project.link}" class="project-link" target="_blank">View Project</a>
+  //      `;
+
+  //       projectsContainer.appendChild(projectCard);
+  //     });
+  //   })
+  //   .catch((error) => console.error("Error loading the projects:", error));
+
   // Animate skill bars
   const skillBars = document.querySelectorAll(".skill-bar");
 
@@ -36,17 +82,18 @@ document.addEventListener("DOMContentLoaded", function () {
     menuBtn.classList.toggle("active");
   });
 
-  // Handle contact form submission
+  // 📩 Handle contact form submission
   const form = document.getElementById("contact-form");
-  form.addEventListener("submit", async function (e) {
-    e.preventDefault();
+  const status = document.getElementById("form-status");
 
-    const formData = new FormData(form);
-    // const status = document.createElement("p");
-    const status = document.getElementById("form-status");
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault(); // جلوگیری از ریفرش شدن صفحه
+
+    const formData = new FormData(form); // جمع‌آوری داده‌ها از فرم
     status.classList.add("form-status");
 
     try {
+      // ارسال فرم به Formspree
       const response = await fetch("https://formspree.io/f/xnndagaq", {
         method: "POST",
         headers: {
@@ -56,24 +103,50 @@ document.addEventListener("DOMContentLoaded", function () {
       });
 
       if (response.ok) {
+        // ✅ موفقیت‌آمیز
         status.textContent = "✅ Nachricht erfolgreich gesendet!";
         status.style.color = "lightgreen";
-        form.reset();
+        form.reset(); // پاک‌کردن فرم
       } else {
+        // ❌ خطا در ارسال فرم (مثلاً فیلدی درست پر نشده)
         status.textContent = "❌ Fehler beim Senden der Nachricht.";
         status.style.color = "salmon";
       }
     } catch (error) {
+      // ⚠️ خطای شبکه یا مشکلات دیگر
       status.textContent = "⚠️ Ein unerwarteter Fehler ist aufgetreten.";
       status.style.color = "orange";
     }
 
-    // نمایش پیام
-    // form.appendChild(status);
-
-    // حذف پیام بعد از چند ثانیه
+    // ⏳ حذف پیام بعد از 5 ثانیه
     setTimeout(() => {
-      status.remove();
+      status.textContent = "";
     }, 5000);
   });
+
+  // 🎯 انیمیشن افکت آبشاری برای پروژه‌ها
+  const projectCards = document.querySelectorAll(".project-card");
+
+  const revealProjects = () => {
+    projectCards.forEach((card, index) => {
+      setTimeout(() => {
+        card.classList.add("visible");
+      }, index * 200); // افکت آبشاری
+    });
+  };
+
+  const projectSection = document.querySelector("#projects");
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          revealProjects();
+          observer.unobserve(projectSection);
+        }
+      });
+    },
+    { threshold: 0.3 }
+  );
+
+  observer.observe(projectSection);
 });

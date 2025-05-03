@@ -43,28 +43,6 @@ document.addEventListener("DOMContentLoaded", function () {
     })
     .catch((error) => console.error("❌ Error loading the projects:", error));
 
-  // fetch("projects.json")
-  //   .then((response) => response.json())
-  //   .then((projects) => {
-  //     const projectsContainer = document.querySelector("#projects .container");
-
-  //     projects.forEach((project) => {
-  //       const projectCard = document.createElement("div");
-  //       projectCard.classList.add("project-card");
-
-  //       projectCard.innerHTML = `
-  //        <img src="${project.image}" alt="${project.title}" class="project-img" />
-  //        <h3 class="project-title">${project.title}</h3>
-  //        <p class="project-description">${project.description}</p>
-  //        <a href="${project.link}" class="project-link" target="_blank">View Project</a>
-  //      `;
-
-  //       projectsContainer.appendChild(projectCard);
-  //     });
-  //   })
-  //   .catch((error) => console.error("Error loading the projects:", error));
-
-  // Animate skill bars
   const skillBars = document.querySelectorAll(".skill-bar");
 
   skillBars.forEach((bar) => {
@@ -149,4 +127,36 @@ document.addEventListener("DOMContentLoaded", function () {
   );
 
   observer.observe(projectSection);
+
+  // 🎯 Tooltips برای آیکون‌های مهارت
+  // 🎯 Tooltips برای آیکون‌های مهارت
+  const tooltip = document.createElement("div");
+  tooltip.className = "skill-tooltip";
+  tooltip.style.position = "absolute";
+  tooltip.style.background = "#333";
+  tooltip.style.color = "#fff";
+  tooltip.style.padding = "5px 10px";
+  tooltip.style.borderRadius = "5px";
+  tooltip.style.pointerEvents = "none";
+  tooltip.style.opacity = "0";
+  tooltip.style.transition = "opacity 0.2s ease";
+  document.body.appendChild(tooltip);
+
+  const skillIcons = document.querySelectorAll(".skill-icon");
+
+  skillIcons.forEach((icon) => {
+    icon.addEventListener("mouseenter", (e) => {
+      tooltip.textContent = icon.getAttribute("data-skill");
+      tooltip.style.opacity = "1";
+    });
+
+    icon.addEventListener("mousemove", (e) => {
+      tooltip.style.left = e.pageX + 15 + "px";
+      tooltip.style.top = e.pageY + 15 + "px";
+    });
+
+    icon.addEventListener("mouseleave", () => {
+      tooltip.style.opacity = "0";
+    });
+  });
 });

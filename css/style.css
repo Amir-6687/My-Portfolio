@@ -91,12 +91,26 @@ body {
   min-height: 100vh;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   padding: 2rem;
   position: relative;
   overflow: hidden;
+  background-image: url("/My-Portfolio/logo/hero-03.jpg"); /* تصویر بک‌گراند جدید */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white; /* رنگ متن رو سفید می‌کنیم برای وضوح بیشتر */
 }
 
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4); /* لایه تیره برای وضوح بیشتر متن */
+  z-index: 1;
+}
 .hero-content {
+  margin-left: 70px;
   flex: 1;
   z-index: 2;
 }
@@ -119,26 +133,44 @@ body {
 .hero-image {
   flex: 1;
   position: relative;
+  z-index: 2;
 }
 
-.triangle-container {
-  position: relative;
-  width: 100%;
-  height: 500px;
+.contact-btn {
+  background-color: #007bff;
+  padding: 1rem 2rem;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 8px;
+  margin-top: 2rem;
+  display: inline-block;
+  transition: background-color 0.3s ease;
 }
 
-.triangle-img {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
-  filter: grayscale(100%);
+.contact-btn:hover {
+  background-color: #0056b3;
 }
 
 /* About Section - New Styles */
 .about {
   padding: 5rem 0;
+  background-image: url("/My-Portfolio/logo/About-Background.jpg"); /* مسیر تصویر */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  z-index: 1;
+  color: white; /* برای خوانایی متن */
+}
+
+/* افزودن لایه تار برای خوانایی متن */
+.about::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5); /* لایه مشکی نیمه‌شفاف */
+  z-index: -1;
 }
 
 .section-title {
@@ -156,15 +188,32 @@ body {
 .triangle-avatar {
   width: 300px;
   height: 300px;
-  position: relative;
   clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
-  background: #333;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
 }
 
 .avatar-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.triangle-container {
+  position: relative;
+  width: 100%;
+  height: 500px;
+}
+
+.triangle-img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+  filter: grayscale(100%);
 }
 
 .about-text {
@@ -174,18 +223,38 @@ body {
 
 /* Skills Section - New Styles */
 .skills {
-  padding: 5rem 0;
+  padding: 6rem 2rem;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("/My-Portfolio/logo/hero-01.jpg") no-repeat center center/cover;
+  color: #fff;
+  position: relative;
 }
 
-.skills-list {
+/* .skills-list {
   max-width: 800px;
+  margin: 0 auto;
+} */
+.skills-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
-.skill-item {
+/* .skill-item {
   display: flex;
   align-items: center;
   margin-bottom: 2rem;
+} */
+.skill-item {
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 1.5rem;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
 }
 
 .skill-item:hover .skill-icon {
@@ -225,6 +294,20 @@ body {
 .skill-percentage {
   margin-left: 1rem;
   min-width: 45px;
+}
+
+.skill-tooltip {
+  position: fixed;
+  background-color: #222;
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  pointer-events: none;
+  z-index: 999;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  white-space: nowrap;
 }
 
 /* Contact Section */

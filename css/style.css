@@ -95,7 +95,7 @@ body {
   padding: 2rem;
   position: relative;
   overflow: hidden;
-  background-image: url("/My-Portfolio/logo/hero-03.jpg"); /* تصویر بک‌گراند جدید */
+  background-image: url("/logo/hero-03.jpg"); /* تصویر بک‌گراند جدید */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -130,12 +130,6 @@ body {
   margin-bottom: 0.5rem;
 }
 
-.hero-image {
-  flex: 1;
-  position: relative;
-  z-index: 2;
-}
-
 .contact-btn {
   background-color: #007bff;
   padding: 1rem 2rem;
@@ -155,7 +149,6 @@ body {
 /* About Section - New Styles */
 .about {
   padding: 5rem 0;
-  background-image: url("/My-Portfolio/logo/About-Background.jpg"); /* مسیر تصویر */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -192,6 +185,8 @@ body {
   overflow: hidden;
   position: relative;
   cursor: pointer;
+  /* border: 2px solid red; */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
 .avatar-img {
@@ -199,21 +194,6 @@ body {
   height: 100%;
   object-fit: cover;
   transition: transform 0.4s ease;
-}
-
-.triangle-container {
-  position: relative;
-  width: 100%;
-  height: 500px;
-}
-
-.triangle-img {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
-  filter: grayscale(100%);
 }
 
 .about-text {
@@ -224,16 +204,11 @@ body {
 /* Skills Section - New Styles */
 .skills {
   padding: 6rem 2rem;
-  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-    url("/My-Portfolio/logo/hero-01.jpg") no-repeat center center/cover;
+  background: url("/logo/hero-01.jpg") no-repeat center center/cover;
   color: #fff;
   position: relative;
 }
 
-/* .skills-list {
-  max-width: 800px;
-  margin: 0 auto;
-} */
 .skills-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -242,11 +217,6 @@ body {
   margin: 0 auto;
 }
 
-/* .skill-item {
-  display: flex;
-  align-items: center;
-  margin-bottom: 2rem;
-} */
 .skill-item {
   background-color: rgba(255, 255, 255, 0.05);
   padding: 1.5rem;
@@ -399,13 +369,6 @@ body {
   color: #0a66c2; /* آبی LinkedIn یا رنگی که دوست داری */
 }
 
-/* .project-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
-} */
-
 /* 🔹 گرید برای نمایش کارت‌های پروژه */
 .projects-grid {
   display: grid;
@@ -417,26 +380,10 @@ body {
   padding: 2rem 0;
 }
 
-/* .project-card {
-  background-color: #ffffff;
-  padding: 1.5rem;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.6s ease;
-} */
-
 .project-card.visible {
   opacity: 1;
   transform: translateY(0);
 }
-
-/* .projects .container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 20px;
-} */
 
 /* 🔹 استایل کارت‌های پروژه */
 .project-card {

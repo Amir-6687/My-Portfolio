@@ -1,22 +1,3 @@
-// document.addEventListener("DOMContentLoaded", function () {
-//   // Animate skill bars
-//   const skillBars = document.querySelectorAll(".skill-bar");
-
-//   skillBars.forEach((bar) => {
-//     const progress = bar.querySelector(".skill-progress");
-//     const percentage = bar.dataset.percentage;
-//     progress.style.width = percentage + "%";
-//   });
-
-//   // Mobile menu toggle
-//   const menuBtn = document.querySelector(".menu-btn");
-//   const navLinks = document.querySelector(".nav-links");
-
-//   menuBtn.addEventListener("click", () => {
-//     navLinks.classList.toggle("active");
-//     menuBtn.classList.toggle("active");
-//   });
-// });
 document.addEventListener("DOMContentLoaded", function () {
   AOS.init();
 

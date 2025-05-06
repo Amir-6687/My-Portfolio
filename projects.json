@@ -1,9 +1,9 @@
 [
   {
-    "title": "Project 1",
-    "description": "This is a brief description of project 1.",
-    "image": "images/project1.jpg",
-    "link": "https://example.com/project1"
+    "title": "Tarkhineh",
+    "description": "Ein responsives Restaurant-Projekt für Tarkhineh mit moderner Benutzeroberfläche.",
+    "image": "/images/Tarkhineh-logo.png",
+    "link": "https://amir-6687.github.io/Tarkhineh/"
   },
   {
     "title": "Project 2",

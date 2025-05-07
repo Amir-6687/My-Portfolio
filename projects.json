@@ -2,7 +2,7 @@
   {
     "title": "Tarkhineh",
     "description": "Ein responsives Restaurant-Projekt für Tarkhineh mit moderner Benutzeroberfläche.",
-    "image": "/images/Tarkhineh-logo.png",
+    "image": "./images/Tarkhineh-logo.png",
     "link": "https://amir-6687.github.io/Tarkhineh/"
   },
   {

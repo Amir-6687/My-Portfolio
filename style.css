@@ -44,6 +44,18 @@ body {
   z-index: 1000;
 }
 
+.logo {
+  padding-left: 40px;
+  position: relative;
+  z-index: 1000;
+}
+
+.logo img {
+  width: 170px; /* یا هر اندازه مناسب دیگر */
+  height: auto;
+  display: block;
+}
+
 .nav-container {
   display: flex;
   justify-content: space-between;
@@ -205,9 +217,15 @@ body {
 /* Skills Section - New Styles */
 .skills {
   padding: 6rem 2rem;
-  background: url("./logo/hero-01.jpg") no-repeat center center/cover;
+  background: url("./logo/About01.jpg") no-repeat center center/cover;
   color: #fff;
   position: relative;
+}
+
+.skills-title {
+  font-size: 3rem;
+  margin-bottom: 3rem;
+  text-align: left;
 }
 
 .skills-list {

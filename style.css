@@ -217,7 +217,7 @@ body {
 /* Skills Section - New Styles */
 .skills {
   padding: 6rem 2rem;
-  background: url("./logo/About02.jpg");
+  background: url("./logo/About01.jpg") no-repeat center center/cover;
   color: #fff;
   position: relative;
 }
@@ -511,7 +511,7 @@ body {
 
   .hero h1 {
     font-size: 48px;
-    margin-top: 6rem;
+    margin-top: 8rem;
     margin-bottom: 1rem;
   }
 

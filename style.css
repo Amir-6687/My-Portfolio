@@ -491,6 +491,16 @@ body {
     text-align: center;
   }
 
+  .hero h1 {
+    font-size: 48px;
+    margin-top: 6rem;
+    margin-bottom: 1rem;
+  }
+
+  .hero span {
+    font-size: 1.5rem;
+  }
+
   .hero-image {
     margin-top: 2rem;
   }

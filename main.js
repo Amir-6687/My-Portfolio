@@ -13,11 +13,11 @@ document.addEventListener("DOMContentLoaded", function () {
         projectCard.classList.add("project-card");
 
         projectCard.innerHTML = `
-      <img src="${project.image}" alt="${project.title}" class="project-img" />
-      <h3 class="project-title">${project.title}</h3>
-      <p class="project-description">${project.description}</p>
-      <a href="${project.link}" class="project-link" target="_blank">View Project</a>
-    `;
+  <img src="${project.image}" alt="${project.title}" class="project-img" /> 
+  <h3 class="project-title">${project.title}</h3> 
+  <p class="project-description">${project.description}</p> 
+  <a href="${project.link}" class="project-link" target="_blank">View Project</a>
+`;
 
         projectsContainer.appendChild(projectCard);
       });
